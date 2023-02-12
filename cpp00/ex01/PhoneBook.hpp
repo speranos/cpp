@@ -4,6 +4,7 @@
 #include <iostream>
 #include "Contact.hpp"
 #include <ctype.h>
+#include <iomanip>
 
 class PhoneBook
 {
@@ -27,6 +28,9 @@ void	add_nname(PhoneBook *phone_book);
 void	add_phnum(PhoneBook *phone_book);
 void	add_secret(PhoneBook *phone_book);
 
+//		***********Searche***********		//
 
-
+void	searche(PhoneBook	*phone_book);
+void	column(PhoneBook *phone_book);
+void	print_space(int	len);
 #endif
