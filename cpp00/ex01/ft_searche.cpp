@@ -77,5 +77,6 @@ void	ft_index_input(PhoneBook *phone_book)
 		std::cout << "Please entere an index..." << std::endl;
 		std::getline(std::cin, input);
 		//input
+		//check num an lenght <= 2;
 	}
 }
