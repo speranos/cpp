@@ -1,20 +1,12 @@
 #include "PhoneBook.hpp"
 
+///////////////////////TO be checked //////////////////////////////
+	// 				if (std::cin.eof())
+	// 	break;
+	// else if(input.length() == 0)
+///////////////////////////////////////////////////////////////////
+
 void	searche(PhoneBook *phone_book)
-{
-	int	i;
-
-	i = 0;
-	while (1)
-	{
-		column(phone_book);
-		break;
-		
-	}
-	
-}
-
-void	column(PhoneBook *phone_book)
 {
 	std::string	str;
 	int			i;
@@ -29,7 +21,7 @@ void	column(PhoneBook *phone_book)
 	std::cout << "lastname" << std::setw(11 - 8);
 	std::cout << "|";
 	std::cout <<  "nickname" << std::endl;
-	while (i <= phone_book->index)
+	while (i <= phone_book->index && i >= 0)
 	{
 		std::cout << i << std::setw(11 - 1);
 
@@ -56,7 +48,9 @@ void	column(PhoneBook *phone_book)
 		i++;
 		std::cout << std::endl;
 	}
-	ft_index_input(phone_book);
+	if(phone_book->index >= 0)
+		ft_index_input(phone_book);
+	return;
 }
 
 void	print_plus_ten(std::string input)
@@ -72,11 +66,35 @@ void	print_plus_ten(std::string input)
 void	ft_index_input(PhoneBook *phone_book)
 {
 	std::string	input;
+	int			num;
 	while(1)
 	{
 		std::cout << "Please entere an index..." << std::endl;
 		std::getline(std::cin, input);
-		//input
-		//check num an lenght <= 2;
+		if (std::cin.eof())
+			break;
+		if(!check_num(input) || input.length() > 1)
+			std::cout << "unavailable index please retry..." << std::endl;
+		else if(input.length() == 0)
+			break;
+		else
+		{
+			num = std::stoi(input);
+			if(num > phone_book->index)
+				std::cout << "unavailable index please retry..." << std::endl;
+			else
+				{
+					std::cout << phone_book->contacts[num].get("f_name") << std::endl;
+					std::cout << phone_book->contacts[num].get("l_name") << std::endl;
+					std::cout << phone_book->contacts[num].get("n_name") << std::endl;
+					std::cout << phone_book->contacts[num].get("ph_num") << std::endl;
+					std::cout << phone_book->contacts[num].get("secret") << std::endl;
+					break;
+				}
+		}
+		
+		// else if(input.length() > 1)
+		// 	std::cout << "unavailable index please retry..." << std::endl;
+
 	}
 }

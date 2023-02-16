@@ -48,13 +48,12 @@ void	add_fname(PhoneBook	*phone_book)
 	{
 		std::cout << "enter the first name:" << std::endl;
 		std::getline(std::cin, input);
-		if(checkspace(input))
-			std::cout << "Try with no space...!" << std::endl;
-		else if(check_alpha(input) == 1)
-		{
-			std::cout << "XOOOOOOOO" << std::endl;
+		if (std::cin.eof())
 			break;
-		}
+		if(checkspace(input) && input.length() > 0)
+			std::cout << "Try with no space...!" << std::endl;
+		else if(check_alpha(input) == 1 && input.length() > 0)
+			break;
 		else
 			std::cout << "Error first name can only be alpha..." << std::endl;
 	}
@@ -69,9 +68,11 @@ void	add_lname(PhoneBook *phone_book)
 	{
 		std::cout << "enter the last name:" << std::endl;
 		std::getline(std::cin, input);
-		if(checkspace(input))
+		if (std::cin.eof())
+			break;
+		if(checkspace(input) && input.length() > 0)
 			std::cout << "Try with no space...!" << std::endl;
-		else if(check_alpha(input) == 1)
+		else if(check_alpha(input) == 1 && input.length() > 0)
 			break;
 		else
 			std::cout << "Error last name can only be alpha..." << std::endl;
@@ -87,9 +88,11 @@ void	add_nname(PhoneBook *phone_book)
 	{
 		std::cout << "enter the nickname:" << std::endl;
 		std::getline(std::cin, input);
-		if(checkspace(input))
+		if (std::cin.eof())
+			break;
+		if(checkspace(input) && input.length() > 0)
 			std::cout << "Try with no space...!" << std::endl;
-		else if(check_alpha(input) == 1)
+		else if(check_alpha(input) == 1 && input.length() > 0)
 			break;
 		else
 			std::cout << "Error nickname can only be alpha..." << std::endl;
@@ -105,9 +108,11 @@ void	add_phnum(PhoneBook *phone_book)
 	{
 		std::cout << "enter the phone number:" << std::endl;
 		std::getline(std::cin, input);
-		if(checkspace(input))
+		if (std::cin.eof())
+			break;
+		if(checkspace(input) && input.length() > 0)
 			std::cout << "Try with no space...!" << std::endl;
-		else if(check_num(input) == 1)
+		else if(check_num(input) == 1 && input.length() > 0)
 			break;
 		else
 			std::cout << "Error phone number can only be digit..." << std::endl;
@@ -118,7 +123,16 @@ void	add_secret(PhoneBook *phone_book)
 {
 	std::string input;
 
+	while (1)
+{	
 	std::cout << "enter the darkest secre:" << std::endl;
 	std::getline(std::cin, input);
+	if (std::cin.eof())
+		break;
+	else if(input.length() == 0)
+		std::cout << "Please enter the darkest secre:" << std::endl;
+	else
+		break;
+}
 	phone_book->contacts[phone_book->index % 7].set("secret", input);
 }

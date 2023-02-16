@@ -10,6 +10,8 @@ int main()
 	{
 		std::cout << "Entere a cmd..." << std::endl;
 		std::getline(std::cin, input);
+		if (std::cin.eof())
+			break;
 		if(checkspace(input))
 			std::cout << "Try with no space...!" << std::endl;
 		else if(input == "ADD")
@@ -18,14 +20,10 @@ int main()
 			searche(&phone_book);
 		else if(input == "EXIT")
 			break;
-		else if(input.length() == 0)
-			break;
 		else
 			std::cout << "Cmd not found..." << std::endl;
 	}
-	// std::cout << "f_name ============= " << phone_book.contacts[phone_book.index - 1].get("f_name") << std::endl;
-	
-}
+}	
 
 int	checkspace(std::string input)
 {
