@@ -11,7 +11,7 @@ class PhoneBook
 {
 	public:
 		int     index;
-		Contact contacts[7];
+		Contact contacts[8];
 
 	// void	set(int	index)
 	// {

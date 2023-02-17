@@ -21,7 +21,7 @@ void	searche(PhoneBook *phone_book)
 	std::cout << "lastname" << std::setw(11 - 8);
 	std::cout << "|";
 	std::cout <<  "nickname" << std::endl;
-	while (i <= phone_book->index && i >= 0)
+	while (i <= phone_book->index && i >= 0 && i < 8)
 	{
 		std::cout << i << std::setw(11 - 1);
 
@@ -67,20 +67,21 @@ void	ft_index_input(PhoneBook *phone_book)
 {
 	std::string	input;
 	int			num;
+
 	while(1)
 	{
 		std::cout << "Please entere an index..." << std::endl;
 		std::getline(std::cin, input);
 		if (std::cin.eof())
 			break;
-		if(!check_num(input) || input.length() > 1)
+		if(!check_num(input) || input.length() != 1)
 			std::cout << "unavailable index please retry..." << std::endl;
 		else if(input.length() == 0)
 			break;
 		else
 		{
 			num = std::stoi(input);
-			if(num > phone_book->index)
+			if(num > phone_book->index || num ==  8)
 				std::cout << "unavailable index please retry..." << std::endl;
 			else
 				{
