@@ -1,5 +1,5 @@
 NAME = megaphone
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
 SRCS = megaphone.cpp
 
 all : $(NAME)

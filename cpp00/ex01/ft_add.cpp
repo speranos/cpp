@@ -32,7 +32,6 @@ void	add(PhoneBook	*phone_book)
 {
 	if(phone_book->index <= 7)
 		phone_book->index++;
-	std::cout << phone_book->index << std::endl;
 	add_fname(phone_book);
 	add_lname(phone_book);
 	add_nname(phone_book);
