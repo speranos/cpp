@@ -1,5 +1,5 @@
 NAME = phonebook
-CFLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 SRCS = *.cpp
 
 all : $(NAME)

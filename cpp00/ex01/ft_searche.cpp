@@ -1,11 +1,5 @@
 #include "PhoneBook.hpp"
 
-///////////////////////TO be checked //////////////////////////////
-	// 				if (std::cin.eof())
-	// 	break;
-	// else if(input.length() == 0)
-///////////////////////////////////////////////////////////////////
-
 void	searche(PhoneBook *phone_book)
 {
 	std::string	str;
@@ -14,37 +8,36 @@ void	searche(PhoneBook *phone_book)
 
 	i = 0;
 	len = 0;
-	std::cout << "index" << std::setw(11 - 5);
+
+	std::cout << std::setw(10) << std::left << "index";
 	std::cout << "|";
-	std::cout << "firstname" << std::setw(11 - 9);
+	std::cout << std::setw(10) << std::left << "firstname";
 	std::cout << "|";
-	std::cout << "lastname" << std::setw(11 - 8);
+	std::cout << std::setw(10) << std::left << "lastname";
 	std::cout << "|";
-	std::cout <<  "nickname" << std::endl;
+	std::cout << std::setw(10) << std::left << "nickname";
+	std::cout << std::endl;
 	while (i <= phone_book->index && i >= 0 && i < 8)
 	{
-		std::cout << i << std::setw(11 - 1);
-
+		std::cout << std::setw(10) << std::left << i;
 		std::cout << "|";
 
 		if(phone_book->contacts[i].get("f_name").length() > 10)
 			print_plus_ten(phone_book->contacts[i].get("f_name"));
 		else
-			std::cout << phone_book->contacts[i].get("f_name") << std::setw(11 - (phone_book->contacts[i].get("f_name").length()));
-		
+			std::cout << std::setw(10) << std::left << phone_book->contacts[i].get("f_name");
 		std::cout << "|";
 
 		if(phone_book->contacts[i].get("l_name").length() > 10)
 			print_plus_ten(phone_book->contacts[i].get("l_name"));
 		else
-			std::cout << phone_book->contacts[i].get("l_name") << std::setw((11 - phone_book->contacts[i].get("l_name").length()));
-
+			std::cout << std::setw(10) << std::left << phone_book->contacts[i].get("l_name");
 		std::cout << "|";
 
 		if(phone_book->contacts[i].get("n_name").length() > 10)
 			print_plus_ten(phone_book->contacts[i].get("n_name"));
 		else
-			std::cout << phone_book->contacts[i].get("n_name");			
+			std::cout << std::setw(10) << std::left << phone_book->contacts[i].get("n_name");		
 		i++;
 		std::cout << std::endl;
 	}
@@ -76,8 +69,6 @@ void	ft_index_input(PhoneBook *phone_book)
 			break;
 		if(!check_num(input) || input.length() != 1)
 			std::cout << "unavailable index please retry..." << std::endl;
-		else if(input.length() == 0)
-			break;
 		else
 		{
 			num = std::stoi(input);
@@ -93,9 +84,5 @@ void	ft_index_input(PhoneBook *phone_book)
 					break;
 				}
 		}
-		
-		// else if(input.length() > 1)
-		// 	std::cout << "unavailable index please retry..." << std::endl;
-
 	}
 }
