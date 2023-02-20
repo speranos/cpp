@@ -1,6 +1,6 @@
-NAME = megaphone
-CFLAGS = -Wall -Wextra -Werror #-fsanitize=address -std=c++98
-SRCS = megaphone.cpp
+NAME = Zombie
+CFLAGS = -Wall -Wextra -Werror -fsanitize=address -std=c++98
+SRCS = *.cpp
 
 all : $(NAME)
 $(NAME): $(SRCS)
