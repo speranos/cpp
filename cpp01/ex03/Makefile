@@ -1,6 +1,6 @@
-NAME = 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-SRCS = *.cpp
+NAME = violence
+CFLAGS = -Wall -Wextra -Werror #-std=c++98 -fsanitize=address
+SRCS = HumanB.cpp HumanA.cpp main.cpp Weapon.cpp
 
 all : $(NAME)
 $(NAME): $(SRCS)

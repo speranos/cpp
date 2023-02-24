@@ -7,9 +7,10 @@ class Weapon
 {
 	std::string type;
 public:
-	Weapon(/* args */);
+	Weapon(std::string type_up);
+	Weapon();
 	~Weapon();
-	setType(std::string	type_up);
+	void	setType(std::string	type_up);
 	std::string	&getType();
 };
 
