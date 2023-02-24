@@ -2,5 +2,8 @@
 
 void	randomChump(std::string name)
 {
-	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	Zombie	new_zombie;
+
+	new_zombie.set(name);
+	new_zombie.announce();
 }

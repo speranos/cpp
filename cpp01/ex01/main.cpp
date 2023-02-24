@@ -2,5 +2,8 @@
 
 int main()
 {
-	zombieHorde(5, "kaisa");
+	Zombie *test;
+
+	test = zombieHorde(5, "kaisa");
+	delete[] test;
 }

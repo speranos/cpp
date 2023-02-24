@@ -2,6 +2,11 @@
 
 int	main()
 {
+	Zombie *a;
 	randomChump("kaisa");
-	newzombie("holla");
+	a = newzombie("holla");
+	a->announce();
+	delete a;
+	while (1);
+	
 }

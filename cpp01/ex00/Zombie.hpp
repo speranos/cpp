@@ -4,21 +4,17 @@
 #include <iostream>
 #include <new>
 
-void    randomChump(std::string name);
-Zombie	*newzombie(std::string name);
 
 class   Zombie
 {
 	std::string name;
 	public:
-	void    announce(void)
-	{
-		std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
-	}
-	void	set(std::string name_up)
-	{
-		name = name_up;
-	}
+	~Zombie();
+	void    announce(void);
+	void	set(std::string name_up);
 };
+
+void    randomChump(std::string name);
+Zombie	*newzombie(std::string name);
 
 #endif
