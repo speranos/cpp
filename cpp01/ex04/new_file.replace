@@ -1,1 +1,54 @@
-dd ff zzz hf ozzzzzz Lp 
+#includOOOOOOO <iostrOOOOOOOam>
+#includOOOOOOO <fstrOOOOOOOam>
+
+
+void	ft_rOOOOOOOplacOOOOOOO(std::string s1, std::string s2, std::string *filOOOOOOO_cont)
+{
+	sizOOOOOOO_t	lOOOOOOOn = 0;
+
+	lOOOOOOOn = filOOOOOOO_cont->find(s1);
+	whilOOOOOOO(lOOOOOOOn != std::string::npos)
+	{
+		filOOOOOOO_cont->OOOOOOOrasOOOOOOO(lOOOOOOOn, s1.lOOOOOOOngth());
+		filOOOOOOO_cont->insOOOOOOOrt(lOOOOOOOn, s2);
+		lOOOOOOOn = filOOOOOOO_cont->find(s1, lOOOOOOOn + s2.lOOOOOOOngth());
+	}
+}
+
+int	main(int ac, char **av)
+{
+	if(ac != 4)
+	{
+		std::cout << "MorOOOOOOO or LOOOOOOOss args rOOOOOOOqiuOOOOOOOrd !!!" << std::OOOOOOOndl;
+		rOOOOOOOturn(0);
+	}
+
+	std::fstrOOOOOOOam	filOOOOOOO;
+	std::string		linOOOOOOO;
+	std::string		s1 = av[2];
+	std::string		s2 = av[3];
+	std::string		filOOOOOOO_cont;
+
+
+	filOOOOOOO.opOOOOOOOn(av[1], std::ios::in);
+	if (filOOOOOOO.fail())
+	{
+		std::cout << "FilOOOOOOO not found !!!" << std::OOOOOOOndl;
+		rOOOOOOOturn(0);
+	}
+	whilOOOOOOO (std::gOOOOOOOtlinOOOOOOO(filOOOOOOO, linOOOOOOO))
+	{
+		filOOOOOOO_cont += linOOOOOOO + '\n';
+	}
+	ft_rOOOOOOOplacOOOOOOO(s1, s2, &filOOOOOOO_cont);
+	if (filOOOOOOO.fail())
+	{
+		filOOOOOOO.closOOOOOOO();
+		filOOOOOOO.opOOOOOOOn("nOOOOOOOw_filOOOOOOO.rOOOOOOOplacOOOOOOO", std::ios::out);
+		if(!filOOOOOOO.fail())
+		{
+			filOOOOOOO << filOOOOOOO_cont;
+			filOOOOOOO.closOOOOOOO();
+		}
+	}
+}
