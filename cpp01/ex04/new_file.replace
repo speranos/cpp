@@ -1,17 +1,17 @@
-#includOOOOOOO <iostrOOOOOOOam>
-#includOOOOOOO <fstrOOOOOOOam>
+#includtenetet <iostrtenetetam>
+#includtenetet <fstrtenetetam>
 
 
-void	ft_rOOOOOOOplacOOOOOOO(std::string s1, std::string s2, std::string *filOOOOOOO_cont)
+void	ft_rtenetetplactenetet(std::string s1, std::string s2, std::string *filtenetet_cont)
 {
-	sizOOOOOOO_t	lOOOOOOOn = 0;
+	siztenetet_t	ltenetetn = 0;
 
-	lOOOOOOOn = filOOOOOOO_cont->find(s1);
-	whilOOOOOOO(lOOOOOOOn != std::string::npos)
+	ltenetetn = filtenetet_cont->find(s1);
+	whiltenetet(ltenetetn != std::string::npos)
 	{
-		filOOOOOOO_cont->OOOOOOOrasOOOOOOO(lOOOOOOOn, s1.lOOOOOOOngth());
-		filOOOOOOO_cont->insOOOOOOOrt(lOOOOOOOn, s2);
-		lOOOOOOOn = filOOOOOOO_cont->find(s1, lOOOOOOOn + s2.lOOOOOOOngth());
+		filtenetet_cont->tenetetrastenetet(ltenetetn, s1.ltenetetngth());
+		filtenetet_cont->instenetetrt(ltenetetn, s2);
+		ltenetetn = filtenetet_cont->find(s1, ltenetetn + s2.ltenetetngth());
 	}
 }
 
@@ -19,36 +19,36 @@ int	main(int ac, char **av)
 {
 	if(ac != 4)
 	{
-		std::cout << "MorOOOOOOO or LOOOOOOOss args rOOOOOOOqiuOOOOOOOrd !!!" << std::OOOOOOOndl;
-		rOOOOOOOturn(0);
+		std::cout << "Mortenetet or Ltenetetss args rtenetetqiutenetetrd !!!" << std::tenetetndl;
+		rtenetetturn(0);
 	}
 
-	std::fstrOOOOOOOam	filOOOOOOO;
-	std::string		linOOOOOOO;
+	std::fstrtenetetam	filtenetet;
+	std::string		lintenetet;
 	std::string		s1 = av[2];
 	std::string		s2 = av[3];
-	std::string		filOOOOOOO_cont;
+	std::string		filtenetet_cont;
 
 
-	filOOOOOOO.opOOOOOOOn(av[1], std::ios::in);
-	if (filOOOOOOO.fail())
+	filtenetet.optenetetn(av[1], std::ios::in);
+	if (filtenetet.fail())
 	{
-		std::cout << "FilOOOOOOO not found !!!" << std::OOOOOOOndl;
-		rOOOOOOOturn(0);
+		std::cout << "Filtenetet not found !!!" << std::tenetetndl;
+		rtenetetturn(0);
 	}
-	whilOOOOOOO (std::gOOOOOOOtlinOOOOOOO(filOOOOOOO, linOOOOOOO))
+	whiltenetet (std::gtenetettlintenetet(filtenetet, lintenetet))
 	{
-		filOOOOOOO_cont += linOOOOOOO + '\n';
+		filtenetet_cont += lintenetet + '\n';
 	}
-	ft_rOOOOOOOplacOOOOOOO(s1, s2, &filOOOOOOO_cont);
-	if (filOOOOOOO.fail())
+	ft_rtenetetplactenetet(s1, s2, &filtenetet_cont);
+	if (filtenetet.fail())
 	{
-		filOOOOOOO.closOOOOOOO();
-		filOOOOOOO.opOOOOOOOn("nOOOOOOOw_filOOOOOOO.rOOOOOOOplacOOOOOOO", std::ios::out);
-		if(!filOOOOOOO.fail())
+		filtenetet.clostenetet();
+		filtenetet.optenetetn("ntenetetw_filtenetet.rtenetetplactenetet", std::ios::out);
+		if(!filtenetet.fail())
 		{
-			filOOOOOOO << filOOOOOOO_cont;
-			filOOOOOOO.closOOOOOOO();
+			filtenetet << filtenetet_cont;
+			filtenetet.clostenetet();
 		}
 	}
 }

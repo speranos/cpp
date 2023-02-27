@@ -21,3 +21,8 @@ Weapon::~Weapon()
 {
 
 }
+
+Weapon::Weapon()
+{
+    type = "";
+}

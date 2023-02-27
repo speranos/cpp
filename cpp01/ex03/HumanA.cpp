@@ -6,10 +6,10 @@ void    HumanA::attack()
 
 }
 
-HumanA::HumanA(std::string name_up, Weapon	&humana_weapon_up): humana_weapon(humana_weapon_up)
+HumanA::HumanA(std::string name_up, Weapon	&humana_weapon_up) : humana_weapon(humana_weapon_up)
 {
-    this->name = name_up;
-    this->humana_weapon = humana_weapon_up;
+    humana_weapon = humana_weapon_up;
+    name = name_up;
 }
 
 HumanA::~HumanA()

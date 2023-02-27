@@ -14,12 +14,4 @@ public:
 	std::string	&getType();
 };
 
-// Weapon::Weapon(/* args */)
-// {
-// }
-
-// Weapon::~Weapon()
-// {
-// }
-
 #endif

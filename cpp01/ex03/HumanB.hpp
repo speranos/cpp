@@ -13,7 +13,7 @@ class HumanB
 	~HumanB();
 	HumanB();
 	void    attack();
-    void    setWeapon(Weapon humanb_weapon_up);
+    void    setWeapon(Weapon &humanb_weapon_up);
 };
 
 #endif
