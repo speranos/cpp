@@ -13,11 +13,8 @@ class Harl
 	public:
 	void	complain(std::string level);
 	typedef void	(Harl::*ptr_to_fnc)();
-	// typedef void(ptr_to_fnc(Harl::*ptr_to_fnc));
-	//void	*ptr_to_fnc(void Harl::debug, void Harl::info);
 	Harl();
 	~Harl();
 };
-// typedef void	(Harl::*ptr_to_fnc)();
 
 #endif
