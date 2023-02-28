@@ -4,13 +4,14 @@ int main()
 {
 	Harl	cmd;
 
-	cmd.complain("debug");
-	cmd.complain("info");
-	cmd.complain("dfk");
-	cmd.complain("dfk");
+	cmd.complain("DEBUG");
+	cmd.complain("INFO");
+	cmd.complain("WARNING");
+	cmd.complain("ERROR");
 	cmd.complain("warning");
 	cmd.complain("info");
 	cmd.complain("errrrr");
 	cmd.complain("error");
+	cmd.complain("");
 
 }
