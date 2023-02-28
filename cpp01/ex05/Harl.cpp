@@ -27,9 +27,9 @@ void    Harl::complain(std::string level)
 
 	std::string	levels[4] = {"debug", "info", "warning", "error"};
 	ptr_to_fnc arr[4] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
-	while(level != levels[i] && i <= levels->length())
+	while(i <= 3 && level != levels[i])
 		i++;
-	while(i < 4)
+	while(i <= 3)
 	{
 		(input.*arr[i])();
 		return;
