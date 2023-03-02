@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/02 21:04:46 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/03/02 21:04:47 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include <fstream>
-
 
 void	ft_replace(std::string s1, std::string s2, std::string *file_cont)
 {
@@ -40,8 +51,9 @@ int	main(int ac, char **av)
 	{
 		file_cont += line + '\n';
 	}
-	ft_replace(s1, s2, &file_cont);
-	if (file.fail())
+	if(!s1.empty())
+		ft_replace(s1, s2, &file_cont);
+	if (file.is_open())
 	{
 		file.close();
 		file.open("new_file.replace", std::ios::out);

@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 16:29:44 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/03/02 16:29:46 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/03/02 17:02:15 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 int	main()
 {
 	Zombie *a;
-	randomChump("kaisa");
-	a = newzombie("holla");
+
+	randomChump("name____1");
+	a = newzombie("name____2");
 	a->announce();
 	delete a;
 }

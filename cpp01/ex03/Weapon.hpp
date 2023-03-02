@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/02 20:45:03 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/03/02 20:45:03 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WEAPON_HPP
 #define WEAPON_HPP
 
@@ -11,7 +23,7 @@ public:
 	Weapon();
 	~Weapon();
 	void	setType(std::string	type_up);
-	std::string	&getType();
+	const std::string	&getType();
 };
 
 #endif
