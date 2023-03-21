@@ -6,14 +6,19 @@
 
 class Fixed
 {
-  int fixed_point;
-  static const int bits_shift;
-  public:
-  Fixed();
-  ~Fixed();
-  Fixed(const Fixed &copy);
-  int   getRawBits(void);
-  void  setRawBits(int const raw);
+	int fixed_point;
+	static const int bits_shift;
+	public:
+	Fixed();
+	~Fixed();
+	Fixed(int up)
+	{
+		fixed_point = up;
+	}
+	Fixed(const Fixed &copy);
+	void  operator= (Fixed &copy);
+	int   getRawBits(void);
+	void  setRawBits(int const raw);
 };
 
 #endif

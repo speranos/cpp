@@ -14,7 +14,9 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	fixed_point = copy.fixed_point;
+	// fixed_point = copy.fixed_point
+	(void)copy;
+	fixed_point = getRawBits();
 }
 
 int	Fixed::getRawBits(void)
@@ -26,4 +28,10 @@ int	Fixed::getRawBits(void)
 void  Fixed::setRawBits(int const raw)
 {
 	fixed_point = raw;
+}
+
+void	Fixed::operator= (Fixed &copy)
+{
+	std::cout << "Copy assignment operator called" << std::endl;
+	fixed_point = copy.fixed_point;
 }
