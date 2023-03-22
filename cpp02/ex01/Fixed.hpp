@@ -7,15 +7,12 @@
 class Fixed
 {
 	int fixed_point;
-	static const int bits_shift;
+	static const int bits_shift = 8;
 	public:
 	Fixed();
 	~Fixed();
-	Fixed(int up)
-	{
-		fixed_point = up;
-	}
 	Fixed(Fixed &copy);
+	Fixed(const int num);
 	void  operator= (Fixed &copy);
 	int   getRawBits(void);
 	void  setRawBits(int const raw);
