@@ -2,6 +2,7 @@
 #define FIXED_HPP
 
 #include <iostream>
+#include <math.h>
 
 
 class Fixed
@@ -9,13 +10,18 @@ class Fixed
 	int fixed_point;
 	static const int bits_shift = 8;
 	public:
-	Fixed();
 	~Fixed();
+	Fixed();
 	Fixed(Fixed &copy);
 	Fixed(const int num);
-	void  operator= (Fixed &copy);
-	int   getRawBits(void);
-	void  setRawBits(int const raw);
+	Fixed(const float num);
+	void  	operator= (Fixed &copy);
+	int   	getRawBits(void);
+	void  	setRawBits(int const raw);
+	float	toFloat() const;
+	int		toInt() const;
 };
+std::ostream &operator<< (std::ostream &stream, const Fixed &obj);
+// void	operator<< (std::ostream  &stream, const Fixed &obj);
 
 #endif
