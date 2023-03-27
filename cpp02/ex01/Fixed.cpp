@@ -14,7 +14,7 @@ Fixed::Fixed()
 	fixed_point = 0;
 }
 
-Fixed::Fixed(Fixed &copy)
+Fixed::Fixed(Fixed const &copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	fixed_point = copy.getRawBits();
@@ -31,10 +31,12 @@ Fixed::Fixed(const float num)
 }
 
 //MEMB_FNCT
-int	Fixed::getRawBits(void)
+float	Fixed::getRawBits(void) const
 {
 	std::cout << "getRawBits member function called" << std::endl;
-	return(fixed_point);
+	float f;
+	f = (float)fixed_point / 256;
+	return(f);
 }
 
 void  Fixed::setRawBits(int const raw)
@@ -42,17 +44,21 @@ void  Fixed::setRawBits(int const raw)
 	fixed_point = raw;
 }
 
-void	Fixed::operator= (Fixed &copy)
+void	Fixed::operator= (Fixed const &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	fixed_point = copy.getRawBits();
+ 	if (this == &copy)
+    {
+        return;
+    }
+	fixed_point = copy.fixed_point;
 }
 
 float	Fixed::toFloat() const
 {
 	float num;
 
-	num = (fixed_point / (1 << bits_shift));
+	num = ((float)fixed_point / (1 << bits_shift));
 	return(num);
 }
 
