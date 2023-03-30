@@ -3,20 +3,20 @@
 //DESTRA
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
+	// std::cout << "Destructor called" << std::endl;
 }
 
 
 //CONSTRA
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
+	// std::cout << "Default constructor called" << std::endl;
 	fixed_point = 0;
 }
 
 Fixed::Fixed(Fixed const &copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	fixed_point = copy.getRawBits();
 }
 
@@ -33,7 +33,7 @@ Fixed::Fixed(const float num)
 //MEMB_FNCT
 int	Fixed::getRawBits(void) const
 {
-	std::cout << "getRawBits member function called" << std::endl;
+	// std::cout << "getRawBits member function called" << std::endl;
 	// float f;
 	// f = (float)fixed_point / 256;
 	return(fixed_point);
@@ -121,9 +121,9 @@ Fixed	&Fixed::operator-- ()
 	return(*this);
 }
 
-Fixed	&Fixed::operator++ (int)
+Fixed	Fixed::operator++ (int)
 {
-	Fixed	&ret = *this;
+	Fixed	ret = *this;
 	fixed_point++;
 	// ++(*this);
 	return(ret);
@@ -137,7 +137,13 @@ Fixed	&Fixed::operator-- (int)
 
 Fixed	Fixed::operator* (Fixed obj2)
 {
-	Fixed ret(fixed_point * obj2.fixed_point);
+	std::cout << "value " << fixed_point << std::endl;
+	std::cout << "obj2.value " << obj2.fixed_point << std::endl;
+	Fixed ret;
 
+	ret.fixed_point = fixed_point * obj2.fixed_point;
+	// Fixed ret;
+	// ret.fixed_point = toFloat() * obj2.toFloat();
+	std::cout << "ret.value " << ret.fixed_point << std::endl;
 	return(ret);
 }

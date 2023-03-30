@@ -32,7 +32,7 @@ class Fixed
 	Fixed	&operator-- ();
 	//postfix
 	Fixed	&operator-- (int);
-	Fixed	&operator++ (int);
+	Fixed	operator++ (int);
 };
 std::ostream &operator<< (std::ostream &stream, const Fixed &obj);
 // void	operator<< (std::ostream  &stream, const Fixed &obj);
