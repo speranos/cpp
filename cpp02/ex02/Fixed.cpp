@@ -135,15 +135,27 @@ Fixed	&Fixed::operator-- (int)
 	return(*this);
 }
 
+// OPERA ////////////////
+Fixed	Fixed::operator+ (Fixed obj2)
+{
+	Fixed ret(toFloat() + obj2.toFloat());
+	return(ret);
+}
+
+Fixed	Fixed::operator/ (Fixed obj2)
+{
+	Fixed ret(toFloat() / obj2.toFloat());
+	return(ret);
+}
+
+Fixed	Fixed::operator- (Fixed obj2)
+{
+	Fixed ret(toFloat() - obj2.toFloat());
+	return(ret);
+}
+
 Fixed	Fixed::operator* (Fixed obj2)
 {
-	std::cout << "value " << fixed_point << std::endl;
-	std::cout << "obj2.value " << obj2.fixed_point << std::endl;
-	Fixed ret;
-
-	ret.fixed_point = fixed_point * obj2.fixed_point;
-	// Fixed ret;
-	// ret.fixed_point = toFloat() * obj2.toFloat();
-	std::cout << "ret.value " << ret.fixed_point << std::endl;
+	Fixed ret(toFloat() * obj2.toFloat());
 	return(ret);
 }

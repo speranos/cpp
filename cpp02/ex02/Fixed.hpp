@@ -27,6 +27,9 @@ class Fixed
 	bool	operator== (Fixed const &obj2);
 	bool	operator!= (Fixed const &obj2);
 	Fixed	operator* (Fixed obj2);
+	Fixed	operator/(Fixed obj2);
+	Fixed	operator- (Fixed obj2);
+	Fixed	operator+ (Fixed obj2);
 	//postfix
 	Fixed	&operator++ ();
 	Fixed	&operator-- ();
