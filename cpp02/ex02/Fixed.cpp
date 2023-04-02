@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/02 08:59:19 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/04/02 08:59:19 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 //DESTRA
@@ -59,7 +71,6 @@ int	Fixed::toInt() const
 //OVERLOAD
 Fixed	&Fixed::operator= (Fixed const &copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	fixed_point = copy.fixed_point;
 	return(*this);
 }
@@ -173,7 +184,7 @@ Fixed const	&Fixed::min(Fixed const &obj1, Fixed const &obj2)
 
 Fixed	&Fixed::max(Fixed &obj1, Fixed &obj2)
 {
-	if(obj1.getRawBits() > obj2.getRawBits())
+	if(obj1 > obj2)
 		return(obj1);
 	else
 		return(obj2);
@@ -181,7 +192,7 @@ Fixed	&Fixed::max(Fixed &obj1, Fixed &obj2)
 
 Fixed const	&Fixed::max(Fixed const &obj1, Fixed const &obj2)
 {
-	if(obj1.getRawBits() > obj2.getRawBits())
+	if(obj1 > obj2)
 		return(obj1);
 	else
 		return(obj2);
