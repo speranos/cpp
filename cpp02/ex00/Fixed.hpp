@@ -16,7 +16,7 @@ class Fixed
 		fixed_point = up;
 	}
 	Fixed(Fixed &copy);
-	void  operator= (Fixed &copy);
+	Fixed &operator= (Fixed &copy);
 	int   getRawBits(void);
 	void  setRawBits(int const raw);
 };

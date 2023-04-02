@@ -22,11 +22,13 @@ Fixed::Fixed(Fixed const &copy)
 
 Fixed::Fixed(const int num)
 {
+	std::cout << "Int constructor called" << std::endl;
 	fixed_point = num * (1 << bits_shift);
 }
 
 Fixed::Fixed(const float num)
 {
+	std::cout << "Float constructor called" << std::endl;
 	fixed_point = round(num * (1 << bits_shift));
 }
 
