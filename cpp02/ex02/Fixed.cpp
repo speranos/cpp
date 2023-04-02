@@ -10,14 +10,12 @@ Fixed::~Fixed()
 //CONSTRA
 Fixed::Fixed()
 {
-	// std::cout << "Default constructor called" << std::endl;
 	fixed_point = 0;
 }
 
 Fixed::Fixed(Fixed const &copy)
 {
-	// std::cout << "Copy constructor called" << std::endl;
-	fixed_point = copy.getRawBits();
+	*this = copy;
 }
 
 Fixed::Fixed(const int num)
@@ -33,11 +31,7 @@ Fixed::Fixed(const float num)
 //MEMB_FNCT
 int	Fixed::getRawBits(void) const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
-	// float f;
-	// f = (float)fixed_point / 256;
 	return(fixed_point);
-	// return(f);
 }
 
 void  Fixed::setRawBits(int const raw)
@@ -63,14 +57,11 @@ int	Fixed::toInt() const
 }
 
 //OVERLOAD
-void	Fixed::operator= (Fixed const &copy)
+Fixed	&Fixed::operator= (Fixed const &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
- 	// if (this == &copy)
-    // {
-    //     return;
-    // }
 	fixed_point = copy.fixed_point;
+	return(*this);
 }
 
 std::ostream &operator<< (std::ostream  &stream, const Fixed &obj)
@@ -79,7 +70,7 @@ std::ostream &operator<< (std::ostream  &stream, const Fixed &obj)
 	return(stream);
 }
 
-bool	Fixed::operator< (Fixed const &obj2)
+bool	Fixed::operator< (Fixed const &obj2) const
 {
 	return(fixed_point < obj2.fixed_point);
 }
@@ -89,7 +80,7 @@ bool	Fixed::operator<= (Fixed const &obj2)
 	return(fixed_point <= obj2.fixed_point);
 }
 
-bool	Fixed::operator> (Fixed const &obj2)
+bool	Fixed::operator> (Fixed const &obj2) const
 {
 	return(fixed_point > obj2.fixed_point);
 }
@@ -158,4 +149,40 @@ Fixed	Fixed::operator* (Fixed obj2)
 {
 	Fixed ret(toFloat() * obj2.toFloat());
 	return(ret);
+}
+
+//Minnnnnnnnn
+
+Fixed	&Fixed::min(Fixed &obj1, Fixed &obj2)
+{
+	if(obj1.getRawBits() < obj2.getRawBits())
+		return(obj1);
+	else
+		return(obj2);
+}
+
+Fixed const	&Fixed::min(Fixed const &obj1, Fixed const &obj2)
+{
+	if(obj1.getRawBits() < obj2.getRawBits())
+		return(obj1);
+	else
+		return(obj2);
+}
+
+//Maxxxxxxxx
+
+Fixed	&Fixed::max(Fixed &obj1, Fixed &obj2)
+{
+	if(obj1.getRawBits() > obj2.getRawBits())
+		return(obj1);
+	else
+		return(obj2);
+}
+
+Fixed const	&Fixed::max(Fixed const &obj1, Fixed const &obj2)
+{
+	if(obj1.getRawBits() > obj2.getRawBits())
+		return(obj1);
+	else
+		return(obj2);
 }

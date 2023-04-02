@@ -8,21 +8,21 @@
 class Fixed
 {
 	int fixed_point;
-	static const int bits_shift = 8;
+	static const int bits_shift;
 	public:
 	~Fixed();
 	Fixed();
 	Fixed(const int num);
 	Fixed(Fixed const &copy);
 	Fixed(const float num);
-	void  	operator= (Fixed const &copy);
-	int	getRawBits(void) const;
+	Fixed	&operator= (Fixed const &copy);
+	int		getRawBits(void) const;
 	void  	setRawBits(int const raw);
 	float	toFloat() const;
 	int		toInt() const;
-	bool	operator< (Fixed const &obj2);
+	bool	operator< (Fixed const &obj2) const;
 	bool	operator<= (Fixed const &obj2);
-	bool	operator> (Fixed const &obj2);
+	bool	operator> (Fixed const &obj2) const;
 	bool	operator>= (Fixed const &obj2);
 	bool	operator== (Fixed const &obj2);
 	bool	operator!= (Fixed const &obj2);
@@ -36,8 +36,13 @@ class Fixed
 	//postfix
 	Fixed	&operator-- (int);
 	Fixed	operator++ (int);
+	//MIN && MAXXXX
+	Fixed	&min(Fixed &abj1, Fixed &obj2);
+	Fixed	&max(Fixed &abj1, Fixed &obj2);
+	const Fixed	&min(Fixed const &abj1, Fixed const &obj2);
+	const Fixed	&max(Fixed const &abj1, Fixed const &obj2);
+
 };
 std::ostream &operator<< (std::ostream &stream, const Fixed &obj);
-// void	operator<< (std::ostream  &stream, const Fixed &obj);
 
 #endif

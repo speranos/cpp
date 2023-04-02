@@ -15,13 +15,12 @@ class Fixed
 	Fixed(const int num);
 	Fixed(Fixed const &copy);
 	Fixed(const float num);
-	void  	operator= (Fixed const &copy);
+	Fixed	&operator= (Fixed const &copy);
 	int		getRawBits(void) const;
 	void  	setRawBits(int const raw);
 	float	toFloat() const;
 	int		toInt() const;
 };
 std::ostream &operator<< (std::ostream &stream, const Fixed &obj);
-// void	operator<< (std::ostream  &stream, const Fixed &obj);
 
 #endif
