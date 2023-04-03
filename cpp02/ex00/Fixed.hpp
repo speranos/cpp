@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 07:33:15 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/02 07:33:15 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:15:08 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ class Fixed
 	public:
 	Fixed();
 	~Fixed();
-	Fixed(int up)
-	{
-		fixed_point = up;
-	}
 	Fixed(Fixed &copy);
-	Fixed &operator= (Fixed &copy);
-	int   getRawBits(void);
+	Fixed &operator= (const Fixed &copy);
+	int   getRawBits(void) const;
 	void  setRawBits(int const raw);
 };
 

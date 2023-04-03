@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 08:59:19 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/02 08:59:19 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:22:03 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	Fixed::toInt() const
 }
 
 //OVERLOAD
-Fixed	&Fixed::operator= (Fixed const &copy)
+Fixed	&Fixed::operator= (const Fixed &copy)
 {
 	fixed_point = copy.fixed_point;
 	return(*this);
@@ -127,14 +127,14 @@ Fixed	Fixed::operator++ (int)
 {
 	Fixed	ret = *this;
 	fixed_point++;
-	// ++(*this);
 	return(ret);
 }
 
-Fixed	&Fixed::operator-- (int)
+Fixed	Fixed::operator-- (int)
 {
+	Fixed	ret = *this;
 	--fixed_point;
-	return(*this);
+	return(ret);
 }
 
 // OPERA ////////////////

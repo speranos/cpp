@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 09:01:10 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/02 09:01:10 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/03 08:17:58 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void  Fixed::setRawBits(int const raw)
 	fixed_point = raw;
 }
 
-Fixed	&Fixed::operator= (Fixed const &copy)
+Fixed	&Fixed::operator= (const Fixed &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
 	fixed_point = copy.fixed_point;
