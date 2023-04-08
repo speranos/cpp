@@ -39,3 +39,8 @@ ScavTrap &ScavTrap::operator= (const ScavTrap &copy)
 	attack_damage = copy.attack_damage;
 	return(*this);
 }
+
+ScavTrap::ScavTrap(ScavTrap &copy)
+{
+    *this = copy;
+}

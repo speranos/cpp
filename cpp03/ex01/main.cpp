@@ -5,11 +5,12 @@ int main()
 {
 	// ClapTrap a("A");
 	// ClapTrap b("B");
-	ScavTrap c("blaka");
+	ScavTrap r("blaka");
+	ScavTrap c(r);
 	ScavTrap a;
 	ClapTrap x;
 
-	c = a;
+	// c = a;
 
 	// c.beRepaired(3);
 	c.attack("FG");

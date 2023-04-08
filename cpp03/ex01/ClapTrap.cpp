@@ -49,6 +49,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 	}
 }
 
+
 ClapTrap	&ClapTrap::operator= (const ClapTrap &copy)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
@@ -58,4 +59,9 @@ ClapTrap	&ClapTrap::operator= (const ClapTrap &copy)
 	energy_points = copy.energy_points;
 	attack_damage = copy.attack_damage;
 	return(*this);
+}
+
+ClapTrap::ClapTrap(ClapTrap &copy)
+{
+	*this = copy;
 }
