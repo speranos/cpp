@@ -8,7 +8,7 @@ int main()
 	ScavTrap r("blaka");
 	ScavTrap c(r);
 	ScavTrap a;
-	ClapTrap x;
+	ClapTrap x(r);
 
 	// c = a;
 

@@ -40,7 +40,7 @@ ScavTrap &ScavTrap::operator= (const ScavTrap &copy)
 	return(*this);
 }
 
-ScavTrap::ScavTrap(ScavTrap &copy)
-{
-    *this = copy;
-}
+// ScavTrap::ScavTrap(ScavTrap &copy)
+// {
+//     *this = copy;
+// }
