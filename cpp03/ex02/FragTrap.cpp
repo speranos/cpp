@@ -8,4 +8,4 @@ FragTrap::FragTrap()
 FragTrap::~FragTrap()
 {
     std::cout << "FragTrap dflt destrc called !" << std::endl;
-}
+} 

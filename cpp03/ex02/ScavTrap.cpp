@@ -17,11 +17,13 @@ void    ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target)
 {
-	if(hits_point || energy_points)
+	if(hits_point && energy_points)
 	{
 		std::cout << "ScavTrap " << name << " attacks " << target << " causing " << attack_damage << " points of damage!" << std::endl;
 		energy_points--;
 	}
+	else
+		std::cout << "FragTrap " << name << " has no enery points to attack"<< std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name_up)
