@@ -3,27 +3,26 @@
 
 int main()
 {
-	// ClapTrap a("A");
-	// ClapTrap b("B");
-	ScavTrap r("blaka");
-	ScavTrap c(r);
-	ScavTrap a;
-	ClapTrap x(r);
+	ScavTrap a("A");
+	ClapTrap b("B");
 
-	// c = a;
+	ClapTrap c(a);
+	ScavTrap d;
 
-	// c.beRepaired(3);
-	c.attack("FG");
-	c.takeDamage(10);
-	x.attack("gt");
-	x.beRepaired(10);
-	x.takeDamage(20);
+	ClapTrap e("switch");
+	ScavTrap f("call");
+
+	e = f;
+
+
+	a.attack("B");
+	b.takeDamage(10);
+	c.attack("B");
+	d.takeDamage(20);
+	a.beRepaired(10);
+	b.takeDamage(20);
 	
-	// a.attack("B");
-	// b.takeDamage(5);
-	// b.beRepaired(3);
-	// b.attack("A");
-	// a.takeDamage(10);
-	// a.beRepaired(10);
+	e.attack("F");
+	f.attack("E");
 	return (0);
 }
