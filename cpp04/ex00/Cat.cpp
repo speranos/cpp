@@ -10,3 +10,8 @@ Cat::~Cat()
 {
     std::cout << "Cat destr called !" << std::endl;
 }
+
+void    Cat::makeSound() const
+{
+    std::cout << "Cat make sound !" << std::endl;
+}

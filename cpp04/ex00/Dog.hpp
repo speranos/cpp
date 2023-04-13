@@ -9,6 +9,7 @@ class Dog : public Animal
 	Dog();
 	Dog(Dog &copy);
 	~Dog();
+	void    makeSound() const;
 };
 
 #endif
