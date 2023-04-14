@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 17:53:52 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/13 02:48:32 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:58:33 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ ClapTrap::ClapTrap(std::string name_up)
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Poly Destructor Called!" << std::endl;
+	std::cout << "ClapTrap Destructor Called!" << std::endl;
 }
 
 void ClapTrap::attack(const std::string& target)
@@ -57,7 +57,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if(amount > hits_point)
 	{
 		hits_point = 0;
-		std::cout << " ClapTrap can’t do anythin !" << std::endl;
+		std::cout << "ClapTrap can’t do anythin !" << std::endl;
 	}
 	else
 	{

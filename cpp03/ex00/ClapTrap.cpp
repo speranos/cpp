@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 16:07:57 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/12 16:29:22 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/14 21:56:40 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if(amount > hits_point)
 	{
 		hits_point = 0;
-		std::cout << " ClapTrap can’t do anythin !" << std::endl;
+		std::cout << "ClapTrap can’t do anythin !" << std::endl;
 	}
 	else
 	{
