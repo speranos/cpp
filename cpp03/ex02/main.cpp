@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 20:53:51 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/13 20:53:54 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:52:34 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int main()
 
 	ClapTrap e("switch");
 	ScavTrap f("call");
+	FragTrap r;
 
 	e = f;
 
@@ -37,5 +38,9 @@ int main()
 	
 	e.attack("F");
 	f.attack("E");
+	r.attack("OOP");
+	r.beRepaired(70);
+	r.takeDamage(890);
+	r.highFivesGuys();
 	return (0);
 }

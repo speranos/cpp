@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 02:25:04 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/13 02:25:04 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:49:14 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int main()
 	
 	e.attack("F");
 	f.attack("E");
+	f.guardGate();
 	return (0);
 }

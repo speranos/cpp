@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 20:53:01 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/13 20:53:01 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:53:27 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ FragTrap &FragTrap::operator= (const FragTrap &copy)
 	return(*this);
 }
 
-void    highFivesGuys()
+void	FragTrap::highFivesGuys()
 {
     std::cout << "Great work! You nailed it! Let's celebrate with a high five!" << std::endl;
 }
