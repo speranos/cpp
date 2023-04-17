@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = Poly
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 SRCS = *.cpp
 

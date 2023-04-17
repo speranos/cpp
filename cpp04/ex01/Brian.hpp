@@ -3,12 +3,14 @@
 
 #include "Animal.hpp"
 
-class Brian
+class Brain
 {
 	std::string idea[100];
 	public:
-	Brian();
-	~Brian();
+	Brain();
+	Brain(Brain &copy);
+	Brain	&operator= (const Brain &copy);
+	~Brain();
 };
 
 #endif

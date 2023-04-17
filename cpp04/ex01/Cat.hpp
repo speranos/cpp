@@ -3,9 +3,10 @@
 
 #include "Animal.hpp"
 #include "Brian.hpp"
+
 class Cat : public Animal
 {
-	Brian *obj;
+	Brain *obj;
 	public:
 	Cat();
 	Cat(Cat &copy);
