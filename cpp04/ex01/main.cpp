@@ -1,55 +1,21 @@
-#include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-#include "Brian.hpp"
 
-// int main()
-// {
+
 int main(void)
 {
 	std::string str;
 	Animal *meta[10];
+	int	i = 0;
 
-	for (size_t i = 0; i < 10; i++)
-	{
-		if (i % 2)
-		{
-			meta[i] = new Dog();
-		}
-		else
-		{
-			meta[i] = new Cat();
-		}
-	}
-	std::cout << std::endl;
-	
-	for (size_t i = 0; i < 10; i++)
-	{
-		delete meta[i];
-	}
-	std::cout << std::endl;
-	
+	while(i < 5)
+		meta[i++] = new Cat();
+	while(i < 10)
+		meta[i++] = new Dog();
+	Cat obj_cat;
+	Cat obj_cat0(obj_cat);
 
-	Dog *d = new Dog();
-	Dog *d2 = new Dog();
-	std::cout << std::endl;
-	str = d->getBrain()->getIdeas(0);
-	std::cout << "Dog1's first idea is "<< str << std::endl;
-
-	d->getBrain()->setIdeas("something", 0);
-	str = d->getBrain()->getIdeas(0);
-	std::cout << "Dog1's first idea is "<< str << std::endl;
-
-	*d2 = *d;
-	str = d2->getBrain()->getIdeas(0);
-	std::cout << "Dog2's first idea is "<< str << std::endl;
-
-	std::cout << std::endl;
-	delete d;
-	d = NULL;
-	delete d2;
-	d2 = NULL;
+	obj_cat0 = obj_cat;
 
 	return 0;
 }
-// }

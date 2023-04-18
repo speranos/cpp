@@ -1,4 +1,4 @@
-NAME = Brian
+NAME = Brain
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 SRCS = *.cpp
 

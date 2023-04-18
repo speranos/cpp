@@ -1,11 +1,11 @@
-#include "Brian.hpp"
+#include "Brain.hpp"
 
-Brian::Brian()
+Brain::Brain()
 {
-    std::cout << "Brian Const Called !" << std::endl;
+    std::cout << "Brain Const Called !" << std::endl;
 }
 
-Brian::~Brian()
+Brain::~Brain()
 {
-    std::cout << "Brian Destr Called !" << std::endl;
+    std::cout << "Brain Destr Called !" << std::endl;
 }
