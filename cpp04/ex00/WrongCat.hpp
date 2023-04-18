@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 00:58:08 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/18 00:58:08 by aoueldma         ###   ########.fr       */
+/*   Created: 2023/04/18 00:56:57 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/04/18 00:56:57 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-class Cat : public Animal
+class WrongCat : public WrongAnimal
 {
 	public:
-	Cat();
-	Cat(Cat &copy);
-	~Cat();
+	WrongCat();
+	WrongCat(WrongCat &copy);
+	~WrongCat();
 	void    makeSound() const;
 };
 

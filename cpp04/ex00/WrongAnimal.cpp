@@ -1,47 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 00:56:36 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/18 00:56:38 by aoueldma         ###   ########.fr       */
+/*   Created: 2023/04/18 00:57:05 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/04/18 00:57:05 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include"WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-    type = "Animal";
-    std::cout << "Animal const called !" << std::endl;
+    type = "WrongAnimal";
+    std::cout << "WrongAnimal const called !" << std::endl;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout << "Animal destr called !" << std::endl;
+    std::cout << "WrongAnimal destr called !" << std::endl;
 }
 
-Animal::Animal(Animal &copy)
+WrongAnimal::WrongAnimal(WrongAnimal &copy)
 {
     *this = copy;
 }
 
-Animal	&Animal::operator= (const Animal &copy)
+WrongAnimal	&WrongAnimal::operator= (const WrongAnimal &copy)
 {
     type = copy.type;
 	return(*this);
 }
 
-std::string Animal::getType() const
+std::string WrongAnimal::getType() const
 {
     return(type);
 }
 
-void    Animal::makeSound() const
+void    WrongAnimal::makeSound() const
 {
-    std::cout << "Animal cant make a specef sound !" << std::endl;
+    std::cout << "WrongAnimal cant make a specef sound !" << std::endl;
 }
-
-

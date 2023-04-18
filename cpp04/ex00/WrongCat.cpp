@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/18 00:58:08 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/18 00:58:08 by aoueldma         ###   ########.fr       */
+/*   Created: 2023/04/18 00:56:42 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/04/18 00:56:42 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#include "WrongCat.hpp"
 
-#include "Animal.hpp"
-
-class Cat : public Animal
+WrongCat::WrongCat()
 {
-	public:
-	Cat();
-	Cat(Cat &copy);
-	~Cat();
-	void    makeSound() const;
-};
+    type = "WrongCat";
+    std::cout << "WrongCat const called !" << std::endl;
+}
 
-#endif
+WrongCat::~WrongCat()
+{
+    std::cout << "WrongCat destr called !" << std::endl;
+}
+
+void    WrongCat::makeSound() const
+{
+    std::cout << "WrongCat say purrs !" << std::endl;
+}
