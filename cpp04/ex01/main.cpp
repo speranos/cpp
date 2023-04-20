@@ -1,10 +1,8 @@
 #include "Cat.hpp"
 #include "Dog.hpp"
 
-
-int main(void)
+int	main()
 {
-	std::string str;
 	Animal *meta[10];
 	int	i = 0;
 
@@ -12,10 +10,19 @@ int main(void)
 		meta[i++] = new Cat();
 	while(i < 10)
 		meta[i++] = new Dog();
-	Cat obj_cat;
-	Cat obj_cat0(obj_cat);
+	Dog	obj_Dog;
+	Dog	obj_Dog0;
+
+	obj_Dog0 = obj_Dog;
+
+	Cat	obj_cat;
+	Cat	obj_cat0;
 
 	obj_cat0 = obj_cat;
 
-	return 0;
+	const Animal* j = new Dog();
+	const Animal* p = new Cat();
+	delete j;
+	delete p;
+	return(0);
 }
