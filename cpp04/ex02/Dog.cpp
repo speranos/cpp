@@ -12,7 +12,7 @@ Dog::~Dog()
 	delete Dog_obj;
 	std::cout << "Dog destr called !" << std::endl;
 }
-
+ 
 void    Dog::makeSound() const
 {
 	std::cout << "Dog say Bark !" << std::endl;
