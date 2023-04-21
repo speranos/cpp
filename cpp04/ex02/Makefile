@@ -1,5 +1,5 @@
-NAME = Abstract
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+NAME = Brain
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 SRCS = *.cpp
 
 all : $(NAME)
