@@ -9,7 +9,6 @@ Dog::Dog()
 
 Dog::~Dog()
 {
-	//Delete Brain
 	delete Dog_obj;
 	std::cout << "Dog destr called !" << std::endl;
 }
