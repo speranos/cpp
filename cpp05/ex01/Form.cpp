@@ -22,6 +22,7 @@ void	Form::beSigned(Bureaucrat &obj)
 std::ostream &operator<< (std::ostream  &stream, Form &obj)
 {
 	(void)obj;
+	stream << "Print attribute !" << std::endl;
 	//stream << "Form " << obj.getName() << " grade is " << obj.getGrade();
 	return(stream);
 }

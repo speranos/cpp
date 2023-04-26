@@ -16,9 +16,6 @@ public:
 	const char*	FormGradeTooLowException();
 	Form(std::string name_up, int grade_up, int execute_up);
 	void	beSigned(Bureaucrat &obj);
-	// void	increment();
-	// void	decrement();
-
 };
 
 std::ostream &operator<< (std::ostream  &stream, Form &obj);

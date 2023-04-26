@@ -1,4 +1,4 @@
-NAME = Bureaucrat
+NAME = 28B
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 SRCS = *.cpp
 
