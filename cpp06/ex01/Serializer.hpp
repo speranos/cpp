@@ -5,7 +5,8 @@
 
 struct Data
 {
-	int	i;
+	int	x;
+	int	y;
 };
 
 class Serializer
