@@ -12,8 +12,9 @@ void	print(T element)
 template <typename T>
 void	iter(T *array, size_t lenght, void(*print)(T element))
 {
-	size_t	i = 0;
+	size_t	i;
 
+	i = 0;
 	while (i < lenght)
 	{
 		print(array[i++]);

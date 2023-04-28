@@ -8,4 +8,6 @@ int	main()
 
 	int	stack[] = {1,2,3};
 	iter(stack, 3, print<int>);
+
+	//add more test
 }
