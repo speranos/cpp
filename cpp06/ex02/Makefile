@@ -1,4 +1,4 @@
-NAME = Type
+NAME = dynamic
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 SRCS = *.cpp
 

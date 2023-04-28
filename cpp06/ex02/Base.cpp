@@ -34,10 +34,25 @@ void Base::identify(Base* p)
 void Base::identify(Base& p)
 {
 	//throw exeption !!!!!!
-	if(dynamic_cast<A&>(p) != NULL)
+	try
+	{
+		A &test = dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
-	else if(dynamic_cast<B&>(p) != NULL)
+		static_cast<void>(test);
+	}
+	catch(const std::exception& e){}
+	try
+	{
+		B &test = dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
-	else
+		static_cast<void>(test);
+	}
+	catch(const std::exception& e){}
+	try
+	{
+		C &test = dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
+		static_cast<void>(test);
+	}
+	catch(const std::exception& e){}
 }
