@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: enima <enima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/18 00:58:22 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/04/21 03:22:38 by enima            ###   ########.fr       */
+/*   Updated: 2023/05/03 13:23:08 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,21 @@
 
 int main()
 {
-	const Animal    	*meta = new Animal();
-	const Animal    	*j = new Dog();
-	const Animal    	*i = new Cat();
-	const WrongAnimal   *dd = new WrongCat();
+	const Animal    	*to_animal = new Animal();
+	const Animal    	*to_dog = new Dog();
+	const Animal    	*to_cat = new Cat();
+	const WrongAnimal   *wrong = new WrongCat();
 
-	std::cout << meta->getType() << " " << std::endl;
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound();
-	j->makeSound();
-	meta->makeSound();
-	dd->makeSound();
-	delete meta;
-	delete i;
-	delete j;
-	delete dd;
-
-
-
+	std::cout << to_animal->getType() << std::endl;
+	std::cout << to_dog->getType() << std::endl;
+	std::cout << to_cat->getType() << std::endl;
+	to_cat->makeSound();
+	to_dog->makeSound();
+	to_animal->makeSound();
+	wrong->makeSound();
+	delete to_animal;
+	delete to_cat;
+	delete to_dog;
+	delete wrong;
 	return 0;
 }
