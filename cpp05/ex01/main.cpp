@@ -3,23 +3,26 @@
 
 int	main()
 {
-	Bureaucrat a("corki", 1);
-	Bureaucrat b("vex", 150);
-	Bureaucrat c("nunu", 45);
 	try
 	{
+		Bureaucrat a("corki", 5);
+		Bureaucrat c("nun", 1);
+		Form b("vex", 2, 1);
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
 
-		b.decrement();
 		a.increment();
+		a.signForm(b);
+		b.beSigned(c);
 		std::cout << a << std::endl;
+		std::cout << b << std::endl;
+
 	}
-	catch(const char* mssg)
+	catch(std::exception &ex)
 	{
-		std::cout << mssg << std::endl;
+		std::cout << ex.what() << std::endl;
 	}
-	std::cout << c << std::endl;
-	c.decrement();
+	// std::cout << c << std::endl;
+	// c.decrement();
 	
 }
