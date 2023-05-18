@@ -7,18 +7,22 @@ int	main()
 	Bureaucrat c("nunu", 45);
 	try
 	{
+
 		std::cout << a << std::endl;
 		std::cout << b << std::endl;
+		std::cout << c << std::endl;
 
 		b.decrement();
 		a.increment();
 		std::cout << a << std::endl;
+
 	}
-	catch(const char* mssg)
+	catch(std::exception &ex)
 	{
-		std::cout << mssg << std::endl;
+		std::cout << ex.what() << std::endl;
 	}
-	std::cout << c << std::endl;
+	std::cout << a << std::endl;
 	c.decrement();
+	std::cout << c << std::endl;
 	
 }
