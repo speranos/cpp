@@ -14,7 +14,6 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destr Called !" << std::endl;
 }
 
- 
 const std::string	Bureaucrat::getName()
 {
 	return name;
@@ -55,4 +54,10 @@ void	Bureaucrat::signForm(AForm &obj)
 		std::cout << getName() << " signed " << obj.get_name() << std::endl;
 	else
 		std::cout << getName() << " couldn’t sign " << obj.get_name() << " because " << obj.get_name() << " Grade Higher then " << getName() << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & Aform)
+{
+	(void)Aform;
+	//To Dooooooo
 }

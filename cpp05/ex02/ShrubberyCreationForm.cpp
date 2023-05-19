@@ -6,6 +6,11 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 0, 0)
 	target = "Default";
 }
 
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{
+	std::cout << "ShrubberyCreationForm dest Called" << std::endl;
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string &target_up) : AForm(target_up, 145, 137)
 {
 	target = target_up;
@@ -32,16 +37,16 @@ void ShrubberyCreationForm::ft_execute(Bureaucrat const &executor) const
 		outfile << " oooo xxoxoo ooo ooox" << std::endl;
 		outfile << " oxo o oxoxo  xoxxoxo" << std::endl;
 		outfile << "  oxo xooxoooo o ooo" << std::endl;
-		outfile << "    ooo\oo\  /o/o" << std::endl;
-		outfile << "        \  \/ /" << std::endl;
+		outfile << "    ooo oo  /o/o" << std::endl;
+		outfile << "         |    /" << std::endl;
 		outfile << "         |   /" << std::endl;
 		outfile << "         |  |" << std::endl;
 		outfile << "         |  |" << std::endl;
 		outfile << "         |  |" << std::endl;
 		outfile << "         |  |" << std::endl;
-		outfile << "  ______/____\____" << std::endl;
+		outfile << "  ______/___|___" << std::endl;
 		outfile.close();
 	}
 	else
-		std::cout << "WAAAAAAA" << std::endl;
+		throw AForm::AFormGradeTooHighException();
 }

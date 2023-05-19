@@ -1,5 +1,8 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main()
 {
@@ -7,16 +10,24 @@ int	main()
 	{
 		Bureaucrat a("corki", 5);
 		Bureaucrat c("nun", 1);
-		// AForm b("vex", 2, 1);
-		std::cout << a << std::endl;
-		//std::cout << b << std::endl;
+		std::string	name = "vex";
+		ShrubberyCreationForm	shrubbery(name);
+		name = "kaisa";
+		RobotomyRequestForm	robot(name);
+		name = "teemo";
+		PresidentialPardonForm presidential(name);
 
+		std::cout << a << std::endl;
+		shrubbery.beSigned(c);
+		shrubbery.ft_execute(c);
+		//
+		robot.beSigned(c);
+		robot.ft_execute(c);
+		//
+		presidential.beSigned(c);
+		presidential.ft_execute(c);
 		a.increment();
-//		a.si//gn//Form(b);
-		//b.beSigned(c);
 		std::cout << a << std::endl;
-		//std::cout << b << std::endl;
-
 	}
 	catch(std::exception &ex)
 	{

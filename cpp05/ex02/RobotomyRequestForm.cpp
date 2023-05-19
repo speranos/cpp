@@ -5,6 +5,11 @@ RobotomyRequestForm::RobotomyRequestForm() : AForm("Default", 0, 0)
 	target = "Default";
 }
 
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+	std::cout << "RobotomyRequestForm dest Called" << std::endl;
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string &target_up) : AForm(target_up, 72, 45)
 {
 	target = target_up;
@@ -23,5 +28,11 @@ RobotomyRequestForm &RobotomyRequestForm::operator= (RobotomyRequestForm &copy)
 
 void RobotomyRequestForm::ft_execute(Bureaucrat const &executor) const
 {
-	(void)executor;
+	if(get_sign() && executor.getGrade() <= get_sign_grade())
+		std::cout << target << " has been robotomized successfully 50%" <<  " of the time." << std::endl;
+	else
+	{
+		std::cout << "The robotomy failed." << std::endl;
+		throw AForm::AFormGradeTooHighException();
+	}
 }
