@@ -1,24 +1,14 @@
 #include "Form.hpp"
 
-void	Form::beSigned(Bureaucrat &obj)
-{
-	if(obj.getGrade() <= get_sign_grade())
-		sign = true;
-	else
-		throw Form::FormGradeTooLowException();
-}
-
-std::ostream &operator<< (std::ostream  &stream, Form &obj)
-{
-	(void)obj;
-	stream << obj.get_name() << " signed: " << obj.get_sign() << " signed_grade: " << obj.get_sign_grade() << " execute_grade: " << obj.get_execute() << std::endl;
-	return(stream);
-}
-
 Form::Form() : name("default") , sign_grade(1) , execute(1)
 {
 	sign = false;
 	std::cout << "const called !" << std::endl;
+}
+
+Form::Form(Form &copy)
+{
+
 }
 
 Form::Form(std::string name_up, int grade_up, int execute_up) : name(name_up), sign_grade(grade_up), execute(execute_up)
@@ -37,6 +27,26 @@ Form::Form(std::string name_up, int grade_up, int execute_up) : name(name_up), s
 Form::~Form()
 {
 	std::cout << "Dest called !" << std::endl;
+}
+
+Form	&Form::operator=(Form &copy)
+{
+
+}
+
+void	Form::beSigned(Bureaucrat &obj)
+{
+	if(obj.getGrade() <= get_sign_grade())
+		sign = true;
+	else
+		throw Form::FormGradeTooLowException();
+}
+
+std::ostream &operator<< (std::ostream  &stream, Form &obj)
+{
+	(void)obj;
+	stream << obj.get_name() << " signed: " << obj.get_sign() << " signed_grade: " << obj.get_sign_grade() << " execute_grade: " << obj.get_execute() << std::endl;
+	return(stream);
 }
 
 const std::string Form::get_name()

@@ -26,10 +26,13 @@ public:
 		}
 
 	};
+	Bureaucrat();
 	Bureaucrat(std::string name_up, int grade_up);
+	~Bureaucrat();
+	Bureaucrat(Bureaucrat &copy);
+	Bureaucrat &operator= (Bureaucrat &copy);
 	const std::string	getName();
 	int	getGrade();
-	~Bureaucrat();
 	void	increment();
 	void	decrement();
 };

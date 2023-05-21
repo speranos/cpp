@@ -1,5 +1,23 @@
 #include "Bureaucrat.hpp"
 
+Bureaucrat::Bureaucrat() : name("default")
+{
+	grade = 0;
+	std::cout << "Default const called" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(Bureaucrat &copy)
+{
+	*this = copy;
+}
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat &copy)
+{
+	const_cast<std::string&>(name) = copy.getName();
+	grade = copy.getGrade();
+	return(*this);
+}
+
 Bureaucrat::Bureaucrat(std::string name_up, int grade_up) : name(name_up)
 {
 	if(grade_up <= 0)
