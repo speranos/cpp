@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 04:26:59 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/22 04:27:44 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", 0, 0)
+PresidentialPardonForm::PresidentialPardonForm() : AForm("Default", 1, 1)
 {
 	target = "Default";
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy)
 {
-	std::cout << "PresidentialPardonForm dest Called" << std::endl;
+	*this = copy;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string &target_up) : AForm(target_up, 25, 5)
@@ -15,9 +27,9 @@ PresidentialPardonForm::PresidentialPardonForm(std::string &target_up) : AForm(t
 	target = target_up;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &copy)
+PresidentialPardonForm::~PresidentialPardonForm()
 {
-	*this = copy;
+	std::cout << "PresidentialPardonForm dest Called" << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator= (PresidentialPardonForm &copy)

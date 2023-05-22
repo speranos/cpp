@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 02:27:40 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/22 04:13:43 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Form.hpp"
 
-Form::Form() : name("default") , sign_grade(0) , execute(0)
+Form::Form() : name("default") , sign_grade(1) , execute(1)
 {
 	sign = false;
 	std::cout << "const called !" << std::endl;
@@ -49,7 +61,6 @@ void	Form::beSigned(Bureaucrat &obj)
 
 std::ostream &operator<< (std::ostream  &stream, Form &obj)
 {
-	(void)obj;
 	stream << obj.get_name() << " signed: " << obj.get_sign() << " signed_grade: " << obj.get_sign_grade() << " execute_grade: " << obj.get_execute() << std::endl;
 	return(stream);
 }

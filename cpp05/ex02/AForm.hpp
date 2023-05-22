@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 04:21:12 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/22 05:11:35 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
@@ -31,7 +43,7 @@ public:
 	};
 
 	AForm();
-	~AForm();
+	virtual ~AForm();
 	AForm(AForm &copy);
 	AForm(std::string name_up, int grade_up, int execute_up);
 	AForm	&operator=(AForm &copy);

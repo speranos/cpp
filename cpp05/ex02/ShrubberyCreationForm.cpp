@@ -1,14 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 04:27:29 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/22 04:28:15 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 0, 0)
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Default", 1, 1)
 {
 	target = "Default";
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm()
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy)
 {
-	std::cout << "ShrubberyCreationForm dest Called" << std::endl;
+	*this = copy;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string &target_up) : AForm(target_up, 145, 137)
@@ -16,9 +28,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string &target_up) : AForm(tar
 	target = target_up;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm &copy)
+ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	*this = copy;
+	std::cout << "ShrubberyCreationForm dest Called" << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator= (ShrubberyCreationForm &copy)

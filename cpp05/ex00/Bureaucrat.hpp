@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/22 02:26:29 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/22 02:26:29 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
@@ -24,12 +36,11 @@ public:
 		{
 			return("GradeTooLowException !");
 		}
-
 	};
 	Bureaucrat();
+	Bureaucrat(Bureaucrat &copy);
 	Bureaucrat(std::string name_up, int grade_up);
 	~Bureaucrat();
-	Bureaucrat(Bureaucrat &copy);
 	Bureaucrat &operator= (Bureaucrat &copy);
 	const std::string	getName();
 	int	getGrade();
