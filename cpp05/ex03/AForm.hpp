@@ -32,6 +32,8 @@ public:
 
 	AForm();
 	~AForm();
+	AForm(AForm &copy);
+	AForm	&operator=(AForm &copy);
 	AForm(std::string name_up, int grade_up, int execute_up);
 	void	beSigned(Bureaucrat &obj);
 	const std::string	get_name() const;

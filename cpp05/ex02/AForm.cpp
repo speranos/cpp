@@ -1,5 +1,20 @@
 #include "AForm.hpp"
 
+AForm::AForm(AForm &copy) : name(copy.get_name()), sign_grade(copy.get_sign_grade()), execute(copy.get_execute())
+{
+	sign = copy.get_sign();
+	std::cout << "Copy const called !" << std::endl;
+}
+
+AForm	&AForm::operator=(AForm &copy)
+{
+	const_cast<std::string&>(name) = copy.get_name();
+	const_cast<int&>(sign_grade) = copy.get_sign_grade();
+	const_cast<int&>(execute) = copy.get_execute();
+	sign = copy.get_sign();
+	return(*this);
+}
+
 void	AForm::beSigned(Bureaucrat &obj)
 {
 	if(obj.getGrade() <= get_sign_grade())
@@ -15,7 +30,7 @@ std::ostream &operator<< (std::ostream  &stream, AForm &obj)
 	return(stream);
 }
 
-AForm::AForm() : name("default") , sign_grade(1) , execute(1)
+AForm::AForm() : name("default") , sign_grade(0) , execute(0)
 {
 	sign = false;
 	std::cout << "const called !" << std::endl;
