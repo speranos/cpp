@@ -1,9 +1,16 @@
-#include "Serializer.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Serializer.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 02:14:54 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/25 02:25:56 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Serializer::Serializer()
-{
-	std::cout << "const called" << std::endl;
-}
+#include "Serializer.hpp"
 
 Serializer::~Serializer()
 {
@@ -12,13 +19,11 @@ Serializer::~Serializer()
 
 uintptr_t Serializer::serialize(Data* ptr)
 {
-	//change cast model
 	return(reinterpret_cast<uintptr_t>(ptr));
 }
 
 Data* Serializer::deserialize(uintptr_t raw)
 {
-	//change cast model
 	return(reinterpret_cast<Data*>(raw));
 }
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 02:19:50 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/25 02:30:16 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 
 Base::~Base()
@@ -11,7 +23,7 @@ Base*	Base::generate(void)
 	std::srand(std::time(nullptr));
 	int random_number = (std::rand() % 3);
 
-	std::cout << "num == " << random_number << std::endl;
+	// std::cout << "num == " << random_number << std::endl;
 	if(random_number == 0)
 		ptr = new A;
 	else if(random_number == 1)

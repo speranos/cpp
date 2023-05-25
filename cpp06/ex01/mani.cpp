@@ -1,33 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   mani.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/25 02:14:51 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/25 02:16:45 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Serializer.hpp"
 
-// int main()
-// {
-// 	Serializer  test;
-// 	Data        ptr;
-// 	int	arr[] = {1, 2, 3};
-// 	uintptr_t	num;
-
-// 	num = arr[0];
-// 	ptr.i = 101;
-
-// 	num = test.serialize(&ptr);
-// 	std::cout << "num " << num << std::endl;
-// 	test.deserialize(num);
-
-// }
-
-int main() {
-    // Create an instance of MyData
-	Serializer myclass;
+int main()
+{
     Data data = {10, 3};
 
-    // Serialize the data
-    uintptr_t serialized = myclass.serialize(&data);
+    uintptr_t serialized = Serializer::serialize(&data);
 
-    // Deserialize the data
-	Data* deserialized = myclass.deserialize(serialized);
+	Data* deserialized = Serializer::deserialize(serialized);
 
-    // Print the original and deserialized data
     std::cout << "Original: " << data.x << ", " << data.y << std::endl;
     std::cout << "Deserialized: " << deserialized->x << ", " << deserialized->y << std::endl;
 
