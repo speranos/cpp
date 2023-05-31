@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/30 23:54:41 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/30 23:54:49 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef WHATEVER_HPP
 #define WHATEVER_HPP
 
 #include <iostream>
+
 template <typename T>
 void	swap(T &x, T &y)
 {

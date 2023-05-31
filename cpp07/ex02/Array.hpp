@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/31 09:17:52 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/05/31 09:17:52 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef ARRAY_HPP
 #define ARRAY_HPP
 
@@ -7,16 +19,18 @@ template <typename T>
 class Array
 {
 	T *array;
-	//check attribut
+	int	size_t;
 public:
 	Array()
 	{
-		T *array = new T;
+		array = new T;
+		size_t = 0;
 	}
 
 	Array(unsigned int n)
 	{
 		array = new T[n];
+		size_t += n;
 	}
 
 	Array(Array &copy)
@@ -39,7 +53,7 @@ public:
 
 	T	&operator[](int i)
 	{
-		if(i < 0 ||  i > size())
+		if(i < 0 ||  i >= size())
 			throw std::exception();
 		else
 			return(array[i]);
@@ -47,10 +61,7 @@ public:
 
 	int	size()
 	{
-		int	i = 0;
-		while(array[i])
-			i++;
-		return(i);
+		return(size_t);
 	}
 
 	~Array()
