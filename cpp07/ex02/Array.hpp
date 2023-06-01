@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 09:17:52 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/05/31 09:17:52 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/06/01 16:11:02 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ public:
 	T	&operator[](int i)
 	{
 		if(i < 0 ||  i >= size())
-			throw std::exception();
+			throw std::out_of_range("Out of range !");
 		else
 			return(array[i]);
 	}

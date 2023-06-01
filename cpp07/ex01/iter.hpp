@@ -6,7 +6,7 @@
 /*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 00:13:32 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/05/31 03:48:55 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/06/01 15:23:32 by aoueldma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,14 @@
 
 #include <iostream>
 
-
 template <typename T>
-void	print(T &element)
+void	print(T const &element)
 {
 	std::cout << element << std::endl;
 }
 
 template <typename T>
-void	iter(T *array, size_t lenght, void(*func)(T& element))
+void	iter(T *array, size_t lenght, void(*func)(T const &element))
 {
 	size_t	i;
 
