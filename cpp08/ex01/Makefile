@@ -1,0 +1,14 @@
+NAME = Span
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
+SRCS = Span.cpp main.cpp
+
+all : $(NAME)
+$(NAME): $(SRCS)
+	@c++ $(SRCS) $(CFLAGS) -o $(NAME)
+	@echo YOU ARE READY TO GO ...!
+clean :
+	@rm -rf $(NAME)
+	@echo CLEAN ...!
+fclean : clean
+	@echo RESET ...!
+re : fclean all
