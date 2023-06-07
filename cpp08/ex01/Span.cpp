@@ -80,6 +80,6 @@ unsigned int	Span::shortestSpan()
 			ret = *i - *last;
 		last = i++;
 	}
-	
+
 	return(ret);
 }
