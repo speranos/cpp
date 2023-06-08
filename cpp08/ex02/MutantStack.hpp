@@ -9,7 +9,17 @@ template <typename T>
 class MutantStack : public std::stack<int>
 {
 public:
-	MutantStack(void) {};
+	MutantStack() {};
+	MutantStack(MutantStack &copy)
+	{
+		*this = copy;
+	}
+	~MutantStack(){};
+	MutantStack &operator= (MutantStack &copy)
+	{
+		this->c = copy.c;
+	}
+
 	typedef MutantStack<T>::container_type::iterator iterator;
 	iterator begin()
 	{
@@ -18,6 +28,16 @@ public:
 	iterator end()
 	{
 		return(c.end());
+	}
+
+	typedef MutantStack<T>::container_type::reverse_iterator reverse_iterator;
+	reverse_iterator rbegin()
+	{
+		return(c.rbegin());
+	}
+	reverse_iterator rend()
+	{
+		return(c.rend());
 	}
 };
 

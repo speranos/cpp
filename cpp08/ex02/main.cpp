@@ -1,21 +1,5 @@
 #include "MutantStack.hpp"
 
-// int main()
-// {
-// 	MutanStack<int> me_stack;
-
-// 	me_stack.push(6);
-// 	me_stack.push(5);
-// 	me_stack.push(3);
-// 	me_stack.push(9);
-
-// 	MutanStack<int>::iterator it;
-
-// 	it = me_stack.begin();
-// 	std::cout << *it << std::endl;
-
-// }
-
 int main()
 {
 	MutantStack<int> mstack;
@@ -27,7 +11,7 @@ int main()
 	mstack.push(3);
 	mstack.push(5);
 	mstack.push(737);
-	//[...]
+
 	mstack.push(0);
 	MutantStack<int>::iterator it = mstack.begin();
 	MutantStack<int>::iterator ite = mstack.end();
@@ -39,5 +23,15 @@ int main()
 		++it;
 	}
 	std::stack<int> s(mstack);
+	int	i = 0;
+	MutantStack<int> my_stack;
+	while(i < 10)
+		my_stack.push(i++);
+	MutantStack<int>::iterator iter = my_stack.begin();
+	while(iter != my_stack.end())
+	{
+		std::cout << "iter === " << *iter << std::endl;
+		iter++;
+	}		
 	return 0;
 }
