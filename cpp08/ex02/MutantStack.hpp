@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/09 21:46:24 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/06/09 21:56:54 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 #define  MUTANTSTACK_HPP
 
 #include <stack>
 #include <iostream>
 #include <vector>
+#include <list>
 
 template <typename T>
 class MutantStack : public std::stack<int>
@@ -40,6 +53,5 @@ public:
 		return(c.rend());
 	}
 };
-
 
 #endif

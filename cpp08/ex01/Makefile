@@ -1,6 +1,6 @@
 NAME = Span
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
-SRCS = Span.cpp main.cpp
+CFLAGS = -Wall -Wextra -Werror #-std=c++98 -fsanitize=address
+SRCS = *.cpp
 
 all : $(NAME)
 $(NAME): $(SRCS)

@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/09 21:27:01 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/06/09 21:29:44 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 Span::Span()
 {
+	size = 0;
 	std::cout << "Default const called" << std::endl;
 }
 
@@ -17,11 +30,13 @@ Span::Span(const Span &copy)
 
 Span::~Span()
 {
+	stack.clear();
 	std::cout << "Dest called" << std::endl;
 }
 
 Span& Span::operator= (const Span &copy)
 {
+	size = copy.size;
 	size_t	i = 0;
 	stack.clear();
 	while(i < copy.stack.size())
@@ -31,14 +46,6 @@ Span& Span::operator= (const Span &copy)
 
 void	Span::addNumber(unsigned int N)
 {
-	std::vector<unsigned int>::iterator	i = stack.begin();
-	while(i != stack.end())
-	{
-		if(*i == N)
-			throw std::invalid_argument("Duplication Error !!!");
-		else
-			i++;
-	}
 	stack.push_back(N);
 	if(stack.size() > size)
 		throw std::invalid_argument("You reached the size limit !!!");
@@ -49,8 +56,8 @@ int	Span::longestSpan()
 	if(stack.size() < 2)
 		throw std::invalid_argument("Add More number to countainer !!!");
 
-	std::vector<unsigned int>::iterator iter_max;
-	std::vector<unsigned int>::iterator iter_min;
+	iterator iter_max;
+	iterator iter_min;
 
 	iter_min = std::min_element(stack.begin(), stack.end());
 	iter_max = std::max_element(stack.begin(), stack.end());
@@ -67,9 +74,9 @@ unsigned int	Span::shortestSpan()
 	
 	std::sort(stack.begin(), stack.end());
 
-	std::vector<unsigned int>::iterator	i = stack.begin();
+	iterator		i = stack.begin();
 	unsigned int	ret;
-	std::vector<unsigned int>::iterator	last;
+	iterator		last;
 
 	last = i++;
 	ret = *i - *last;
@@ -82,4 +89,14 @@ unsigned int	Span::shortestSpan()
 	}
 
 	return(ret);
+}
+
+void	Span::add_range(iterator start, iterator end)
+{
+	std::vector<unsigned int> get_size(start, end);
+	
+	if(get_size.size() > (size - stack.size()))
+		throw std::invalid_argument("You reached the size limit !!!");
+
+	stack.insert(stack.end(), start, end);
 }
