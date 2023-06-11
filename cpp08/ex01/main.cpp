@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: enima <enima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:26:58 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/06/09 21:26:58 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/06/10 23:37:12 by enima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int main()
 {
 	try
 	{
-		Span sp = Span(10);
+		Span sp = Span(10000);
 		std::vector<unsigned int> _vector;
 		for (int i = 20; i < 25; i++)
 			_vector.push_back(i);
