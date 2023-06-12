@@ -8,7 +8,26 @@
 #include <algorithm>
 #include <sstream>
 
-typedef std::map<std::string, int> cont;
+typedef std::map<std::string, double> cont;
+class BitcoinExchange
+{
+	std::string	key;
+	double		value;
+public:
+	void	set_class(std::string befor, double after)
+	{
+		key = befor;
+		value = after;
+	}
+	std::string	get_key()
+	{
+		return(key);
+	}
+	double	get_value()
+	{
+		return(value);
+	}
+};
 
 int	ft_check_date_value(std::string befor)
 {
@@ -22,7 +41,7 @@ int	ft_check_date_value(std::string befor)
 	month >> m;
 	std::istringstream day(befor.substr(8, 10));
 	day >> d;
-	if((y < 2009 || y > 2022) && (d < 1 || d > 31) && (m < 1 || m > 12))
+	if((y < 2009 || y > 2022) || (d < 1 || d > 31) || (m < 1 || m > 12))
 	{
 		std::cout << "Error: Adjust the date format." << std::endl;
 		return(0);
@@ -50,55 +69,117 @@ int	ft_check_date_format(std::string &befor)
 	return(1);
 }
 
-void	ft_parss_input(cont &map, std::string &befor, std::string &after)
+int	ft_check_after(std::string &after)
 {
-	(void)map;
-	(void)after;
+	size_t	i = 0;
+	int		p = 0;
+
+	after.erase(std::remove(after.begin(), after.end(), ' '));
+	if(after.size() > 7)
+	{
+		std::cout << "Error: Too large number." << std::endl;
+		return(0);
+	}
+	while (i < after.size())
+	{
+		if(after[i] == '.' && p == 0)
+		{
+			i++;
+			p++;
+		}
+		if(!isdigit(after[i]))
+		{
+			std::cout << "Error: Value can only be positive digits." << std::endl;
+			return(0);
+		}
+		i++;
+	}
+	return(1);
+}
+
+void	ft_add_to_class(BitcoinExchange &map_input, std::string &befor, std::string &after)
+{
+	double				after_value;
+	std::istringstream	atoi(after);
+	atoi >> after_value;
+	map_input.set_class(befor, after_value);
+}
+
+void	ft_calculate_price(cont &map_csv, BitcoinExchange &map_input)
+{
+	cont::iterator iter;
+
+	iter = map_csv.lower_bound(map_input.get_key());
+	if(iter->first != map_input.get_key() && iter != map_csv.begin())
+		iter--;
+	std::cout << map_input.get_key() << " ==> " << map_input.get_value() << " = " << map_input.get_value() * iter->second << std::endl;
+}
+
+int	ft_parss_input(cont &map_csv, BitcoinExchange &map_input, std::string &befor, std::string &after)
+{
 	if(!ft_check_date_format(befor))
 	{
 		std::cout << "Error: Adjust the date format." << std::endl;
-		return;
+		return(0);
 	}
 	if(!ft_check_date_value(befor))
-		return;
+		return(0);
 	if(!ft_check_after(after))
-		return;
+		return(0);
+	ft_add_to_class(map_input, befor, after);
+	ft_calculate_price(map_csv, map_input);
+	return(1);
 }
 
-void	parsing_file(cont &map, char *av)
+void	parsing_file(cont &map_csv, BitcoinExchange &map_input, char *av)
 {
 	std::fstream	file;
 	std::string		line;
 	std::string		befor;
 	std::string		after;
 	std::string		delim = "|";
-	(void)map;
 
 	file.open(av);
 	if(file.fail())
-		throw std::invalid_argument("Error: could not open file.");
-	while(std::getline(file, befor, delim[0]))
 	{
-		std::getline(file, after);
-		ft_parss_input(map ,befor, after);
-		std::cout << befor << std::endl;
+		std::cout << "Error: could not open file." << std::endl;
+		return;
+	}
+	while(std::getline(file, line))
+	{
+		befor = line.substr(0, line.find(delim));
+		after = line.substr(line.find(delim) + 1, line.size());
+
+		ft_parss_input(map_csv, map_input ,befor, after);
 	}
 }
 
-void	reading_file(int ac)
+void	ft_add_csv_map(cont &map_csv, std::string &befor, std::string &after)
 {
-	if(ac != 2)
-		throw std::invalid_argument("Error: More or less then the arguent requierd.");
+	double							value;
+	std::pair<std::string, double>	pr;
+	std::istringstream atoi(after);
+	atoi >> value;
+	pr.first = befor;
+	pr.second = value;
+	map_csv.insert(pr);
+	// std::cout << "befor ==== " << befor << " value == " << value << std::endl;
+}
+
+void	reading_file(cont &map_csv)
+{
 	std::fstream    csv_file;
-	std::string		file_data;
-	std::string		line;
+	std::string		after;
+	std::string		before;
+	std::string		delim = ",";
+
 	csv_file.open("data.csv");
-	if(csv_file.fail())
+	if(csv_file.fail()) 
 		throw std::invalid_argument("Error: could not open file.");
-	while(!csv_file.eof())
+	while(std::getline(csv_file, before, delim[0]))
 	{
-		csv_file >> line;
-		file_data += line + "\n";
+		std::getline(csv_file, after);
+		ft_add_csv_map(map_csv, before, after);
 	}
 }
 
