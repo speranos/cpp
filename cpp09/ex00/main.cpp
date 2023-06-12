@@ -6,8 +6,9 @@ int main(int ac, char **av)
 	{
 		BitcoinExchange map_input;
 		cont	map_csv;
-		reading_file(map_csv);
-		parsing_file(map_csv, map_input, av[1]);
+		if(!reading_file(map_csv))
+			return(0);
+		reading_input(map_csv, map_input, av[1]);
 	}
 	else
 	{
@@ -17,8 +18,8 @@ int main(int ac, char **av)
 }
 
 //empty value
-//value betwene 0 && 1000
-//empty file for input
-//empty file for csv
-//csv file not fouand
+
+
+
+
 //skip new line if it's possible

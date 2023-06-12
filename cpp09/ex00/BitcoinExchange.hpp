@@ -52,7 +52,9 @@ int	ft_check_date_value(std::string befor)
 int	ft_check_date_format(std::string &befor)
 {
 	size_t	i = 0;
-	befor.erase(std::remove(befor.begin(), befor.end(), ' '));
+
+	befor.erase(std::remove(befor.begin(), befor.end(), ' '), befor.end());
+
 	if(befor.size() != 10)
 		return(0);
 	else if(befor[4] != '-' || befor[7] != '-')
@@ -74,10 +76,10 @@ int	ft_check_after(std::string &after)
 	size_t	i = 0;
 	int		p = 0;
 
-	after.erase(std::remove(after.begin(), after.end(), ' '));
-	if(after.size() > 7)
+	after.erase(std::remove(after.begin(), after.end(), ' '), after.end());
+	if(after.size() > 4 || after.empty())
 	{
-		std::cout << "Error: Too large number." << std::endl;
+		std::cout << "Error: Number should be between 0 and 1000." << std::endl;
 		return(0);
 	}
 	while (i < after.size())
@@ -97,12 +99,18 @@ int	ft_check_after(std::string &after)
 	return(1);
 }
 
-void	ft_add_to_class(BitcoinExchange &map_input, std::string &befor, std::string &after)
+int	ft_add_to_class(BitcoinExchange &map_input, std::string &befor, std::string &after)
 {
 	double				after_value;
 	std::istringstream	atoi(after);
 	atoi >> after_value;
+	if(after_value > 1000)
+	{
+		std::cout << "Error: Number should be between 0 and 1000." << std::endl;
+		return(0);
+	}
 	map_input.set_class(befor, after_value);
+	return(1);
 }
 
 void	ft_calculate_price(cont &map_csv, BitcoinExchange &map_input)
@@ -126,12 +134,13 @@ int	ft_parss_input(cont &map_csv, BitcoinExchange &map_input, std::string &befor
 		return(0);
 	if(!ft_check_after(after))
 		return(0);
-	ft_add_to_class(map_input, befor, after);
+	if(!ft_add_to_class(map_input, befor, after))
+		return(0);
 	ft_calculate_price(map_csv, map_input);
 	return(1);
 }
 
-void	parsing_file(cont &map_csv, BitcoinExchange &map_input, char *av)
+void	reading_input(cont &map_csv, BitcoinExchange &map_input, char *av)
 {
 	std::fstream	file;
 	std::string		line;
@@ -145,6 +154,15 @@ void	parsing_file(cont &map_csv, BitcoinExchange &map_input, char *av)
 		std::cout << "Error: could not open file." << std::endl;
 		return;
 	}
+	std::getline(file, line);
+	if(line.empty())
+	{
+		std::cout << "Error: Empty file." << std::endl;
+		return;
+	}
+	befor = line.substr(0, line.find(delim));
+	after = line.substr(line.find(delim) + 1, line.size());
+	ft_parss_input(map_csv, map_input ,befor, after);
 	while(std::getline(file, line))
 	{
 		befor = line.substr(0, line.find(delim));
@@ -158,29 +176,41 @@ void	ft_add_csv_map(cont &map_csv, std::string &befor, std::string &after)
 {
 	double							value;
 	std::pair<std::string, double>	pr;
-	std::istringstream atoi(after);
+	std::istringstream				atoi(after);
 	atoi >> value;
 	pr.first = befor;
 	pr.second = value;
 	map_csv.insert(pr);
-	// std::cout << "befor ==== " << befor << " value == " << value << std::endl;
 }
 
-void	reading_file(cont &map_csv)
+int	reading_file(cont &map_csv)
 {
-	std::fstream    csv_file;
+	std::fstream	csv_file;
 	std::string		after;
 	std::string		before;
 	std::string		delim = ",";
 
 	csv_file.open("data.csv");
-	if(csv_file.fail()) 
-		throw std::invalid_argument("Error: could not open file.");
+	if(csv_file.fail())
+	{
+		std::cout << "Error: could not open file." << std::endl;
+		return(0);
+	}
+	std::getline(csv_file, before, delim[0]);
+	if(before.empty())
+	{
+		std::cout << "Error: Empty file." << std::endl;
+		return(0);
+	}
+	std::getline(csv_file, after);
+	ft_add_csv_map(map_csv, before, after);
 	while(std::getline(csv_file, before, delim[0]))
 	{
 		std::getline(csv_file, after);
 		ft_add_csv_map(map_csv, before, after);
 	}
+	csv_file.close();
+	return(1);
 }
 
 #endif
