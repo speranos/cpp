@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/15 04:15:16 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/06/15 04:15:16 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 int main(int ac, char **av)
@@ -21,8 +33,3 @@ int main(int ac, char **av)
 		std::cout << "ERROR: Not enoughe argument." << std::endl;
 	return(0);
 }
-
-//pussshh to seconddd cont 
-//implement sorting algo
-//specify the use of the tow cont
-//searche more about time complexity

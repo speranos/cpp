@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/15 04:15:13 by aoueldma          #+#    #+#             */
+/*   Updated: 2023/06/15 04:19:43 by aoueldma         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 
 bool	ft_isdigit(char *str)
@@ -9,6 +21,8 @@ bool	ft_isdigit(char *str)
 			return(false);
 		i++;
 	}
+	if(i == 0)
+		return(false);
 	return(true);
 }
 
@@ -24,7 +38,6 @@ void	ft_add_vector(int	ac, char **av, vector &my_vec, deque &my_deq)
 		i++;
 	}
 	print_vec_befor(my_vec);
-	//init time
 	ft_insertion(my_vec);
 }
 
@@ -143,7 +156,7 @@ void	ft_deq_insertion(deque &my_deq)
 	ft_insert_merge_deq(my_deq, vec_pair);
 	clock_t			end = clock();
 	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << my_deq.size() << " elements with std::vector : " << duration << std::endl;
+	std::cout << "Time to process a range of " << my_deq.size() << " elements with std::deque : " << duration << std::endl;
 }
 
 void	ft_insert_merge_deq(deque &my_deq, deque_pair &vec_pair)
