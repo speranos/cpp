@@ -7,8 +7,10 @@ int main(int ac, char **av)
 		try
 		{
 			vector	my_vec;
-			list	my_list;
-			ft_add(ac, av, my_vec);
+			deque	my_deq;
+
+			ft_add_vector(ac, av, my_vec, my_deq);
+			ft_deq_insertion(my_deq);
 		}
 		catch(const std::exception& e)
 		{
