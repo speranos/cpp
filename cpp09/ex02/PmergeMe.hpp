@@ -6,6 +6,7 @@
 #include <deque>
 #include <utility>
 #include <algorithm>
+#include <ctime>
 
 typedef std::vector<int>					vector;
 typedef std::vector<std::pair<int, int> >	vector_pair;

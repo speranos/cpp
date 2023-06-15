@@ -58,6 +58,7 @@ void	ft_insertion(vector &my_vec)
 	vector::iterator	iter = my_vec.begin();
 	int				small = 0;
 	int				big = 0;
+	clock_t			start = clock();
 
 	while (iter != my_vec.end())
 	{
@@ -80,6 +81,9 @@ void	ft_insertion(vector &my_vec)
 			break;
 	}
 	ft_insert_merge(my_vec, vec_pair);
+	clock_t			end = clock();
+	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << my_vec.size() << " elements with std::vector : " << duration << std::endl;
 }
 
 void	ft_insert_merge(vector &my_vec, vector_pair &vec_pair)
@@ -114,6 +118,7 @@ void	ft_deq_insertion(deque &my_deq)
 	deque::iterator	iter = my_deq.begin();
 	int				small = 0;
 	int				big = 0;
+	clock_t			start = clock();
 
 	while (iter != my_deq.end())
 	{
@@ -136,6 +141,9 @@ void	ft_deq_insertion(deque &my_deq)
 			break;
 	}
 	ft_insert_merge_deq(my_deq, vec_pair);
+	clock_t			end = clock();
+	double duration = static_cast<double>(end - start) / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << my_deq.size() << " elements with std::vector : " << duration << std::endl;
 }
 
 void	ft_insert_merge_deq(deque &my_deq, deque_pair &vec_pair)
