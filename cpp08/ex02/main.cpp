@@ -3,18 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aoueldma <aoueldma@student.42.fr>          +#+  +:+       +#+        */
+/*   By: enima <enima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 21:46:27 by aoueldma          #+#    #+#             */
-/*   Updated: 2023/06/09 21:58:22 by aoueldma         ###   ########.fr       */
+/*   Updated: 2023/11/11 00:38:54 by enima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 
+
 int main()
 {
-	MutantStack<int> mstack;
+	MutantStack<int ,std::list> > mstack;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
